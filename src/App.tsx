@@ -51,7 +51,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={"/pizza-store/"}>
       <AuthContextProvider>
         <Routes>
           <Route path="/" element={<Header />}>
