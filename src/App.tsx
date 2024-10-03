@@ -57,9 +57,9 @@ function App() {
       <AuthContextProvider>
         <Routes>
           <Route path="/pizza-store/" element={<Header />}>
-            <Route path="signin" element={<SignIn />} />
-            <Route path="signup" element={<SignUp />} />
-            <Route path="success" element={<Success />} />
+            <Route path="/pizza-store/signin" element={<SignIn />} />
+            <Route path="/pizza-store/signup" element={<SignUp />} />
+            <Route path="/pizza-store/success" element={<Success />} />
 
             <Route
               path="/pizza-store/menu"
@@ -74,7 +74,7 @@ function App() {
               }
             />
             <Route
-              path="cart"
+              path="/pizza-store/cart"
               element={
                 <ProtectedRoutes>
                   <Cart cartPizza={cartPizza} setCartPizza={setCartPizza} />
@@ -82,7 +82,7 @@ function App() {
               }
             />
             <Route
-              path="details"
+              path="/pizza-store/details"
               element={
                 <ProtectedRoutes>
                   <Details
