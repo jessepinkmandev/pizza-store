@@ -8,7 +8,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const { createUser } = UserAuth();
+  const { createUser }: any = UserAuth();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();

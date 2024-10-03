@@ -8,7 +8,7 @@ const SignIn = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const { signIn } = UserAuth();
+  const { signIn }: any = UserAuth();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
