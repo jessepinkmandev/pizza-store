@@ -4,7 +4,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import { Menu } from "./components/Menu";
 import { FormEvent, useEffect, useState } from "react";
-import { db } from "./firebase.jsx";
+import { db } from "./firebase.js";
 import {
   query,
   collection,
@@ -13,7 +13,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 import { Details } from "./components/Details";
-import { AuthContextProvider } from "./context/AuthContext.jsx";
+import { AuthContextProvider } from "./context/AuthContext.js";
 import { Cart } from "./components/Cart.js";
 import Success from "./components/Success.js";
 import ProtectedRoutes from "./components/ProtectedRoutes.js";
@@ -28,6 +28,7 @@ function App() {
     address: "",
     contact: 0,
   });
+  console.log(QuerySnapshot);
 
   useEffect(() => {
     const p = query(collection(db, "pizzas"));
@@ -48,6 +49,7 @@ function App() {
       address: input.address,
       contact: input.contact,
     });
+    console.log(e);
   };
 
   return (

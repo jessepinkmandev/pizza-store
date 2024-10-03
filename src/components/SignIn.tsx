@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserAuth } from "../context/AuthContext.jsx";
+import { UserAuth } from "../context/AuthContext.js";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");

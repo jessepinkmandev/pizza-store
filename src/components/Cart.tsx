@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 type propCart = {
   cartPizza: [];
-  setCartPizza?;
+  setCartPizza?: any;
 };
 
 export const Cart = ({ cartPizza, setCartPizza }: propCart) => {

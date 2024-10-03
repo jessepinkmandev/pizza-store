@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { BsPlusCircle } from "react-icons/bs";
-import { pizzaAr } from "../App";
 
 type propMenuItem = {
   pizza: [];
@@ -13,38 +12,40 @@ export const MenuItem = ({ pizza, addToCart }: propMenuItem) => {
 
   //
 
-  return pizza.map((pizza: pizzaAr) => (
-    <div
-      className="bg-[#EF5A6F] grid place-items-center grid-cols-5 p-4 gap-2 text-[#D4BDAC] text-xl md:px-24 mb-4 md:mb-8"
-      key={pizza.id}
-    >
-      <img
-        className="w-64 h-16 md:w-64 md:h-32"
-        src={pizza.url}
-        alt={pizza.name}
-      />
-      <h4>{pizza.name}</h4>
-      <h4>{pizza.price}</h4>
-      <select
-        onChange={(e) => {
-          setQuantity(+e.target.value);
-        }}
+  return pizza.map(
+    (pizza: { id: number; url: string; name: string; price: number }) => (
+      <div
+        className="bg-[#EF5A6F] grid place-items-center grid-cols-5 p-4 gap-2 text-[#D4BDAC] text-xl md:px-24 mb-4 md:mb-8"
+        key={pizza.id}
       >
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <button
-        onClick={() => {
-          addToCart(pizza.name, pizza.price, quantity);
-        }}
-        className="text-3xl"
-      >
-        <BsPlusCircle />
-      </button>
-    </div>
-  ));
+        <img
+          className="w-64 h-16 md:w-64 md:h-32"
+          src={pizza.url}
+          alt={pizza.name}
+        />
+        <h4>{pizza.name}</h4>
+        <h4>{pizza.price}</h4>
+        <select
+          onChange={(e) => {
+            setQuantity(+e.target.value);
+          }}
+        >
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <button
+          onClick={() => {
+            addToCart(pizza.name, pizza.price, quantity);
+          }}
+          className="text-3xl"
+        >
+          <BsPlusCircle />
+        </button>
+      </div>
+    )
+  );
 };

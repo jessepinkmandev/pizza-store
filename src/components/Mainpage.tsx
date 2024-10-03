@@ -1,10 +1,10 @@
 import AboutUs from "./AboutUs";
-import { UserAuth } from "../context/AuthContext.jsx";
+import { UserAuth } from "../context/AuthContext.js";
 import { useNavigate } from "react-router-dom";
 
 const Mainpage = () => {
   const navigate = useNavigate();
-  const { user, logout } = UserAuth();
+  const { user, logout }: any = UserAuth();
   return (
     <div>
       {user ? (

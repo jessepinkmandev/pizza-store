@@ -5,9 +5,9 @@ const style = {
 };
 
 type propDetails = {
-  createData: (e?) => void;
+  createData: (e: any) => void;
   input: { name: string; address: string; contact: number };
-  setInput?;
+  setInput?: any;
 };
 
 export const Details = ({ createData, input, setInput }: propDetails) => {
@@ -49,7 +49,7 @@ export const Details = ({ createData, input, setInput }: propDetails) => {
         className="grid place-content-center gap-2"
         onSubmit={(e) => {
           e.preventDefault();
-          createData();
+          createData(e);
           navigate("/success");
         }}
       >
