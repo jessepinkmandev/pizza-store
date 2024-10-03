@@ -53,16 +53,16 @@ function App() {
   };
 
   return (
-    <BrowserRouter basename={"/pizza-store/"}>
+    <BrowserRouter>
       <AuthContextProvider>
         <Routes>
-          <Route path="/" element={<Header />}>
+          <Route path="/pizza-store/" element={<Header />}>
             <Route path="signin" element={<SignIn />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="success" element={<Success />} />
 
             <Route
-              path="menu"
+              path="/pizza-store/menu"
               element={
                 <ProtectedRoutes>
                   <Menu
