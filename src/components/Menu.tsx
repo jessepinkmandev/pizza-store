@@ -42,7 +42,7 @@ export const Menu = ({ pizza, cartPizza, setCartPizza }: propMenu) => {
       </div>
 
       <MenuItem pizza={pizza} addToCart={addToCart} />
-      <Link to={"/cart"}>
+      <Link to={"/pizza-store/cart"}>
         <div className="bg-blue-300 px-4 py-3  w-[40%] text-center mt-8 m-auto  cursor-pointer  text-xl">
           <button>
             <BsCart />

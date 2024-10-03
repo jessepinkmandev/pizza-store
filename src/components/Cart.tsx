@@ -74,7 +74,7 @@ export const Cart = ({ cartPizza, setCartPizza }: propCart) => {
         </div>
       </div>
       <div
-        onClick={() => navigate("/details")}
+        onClick={() => navigate("/pizza-store/details")}
         className="text-center text-xl mx-auto bg-[#EF5A6F] text-[#D4BDAC] cursor-pointer mt-8 py-3 w-[40%]"
       >
         Checkout

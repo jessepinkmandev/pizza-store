@@ -16,7 +16,7 @@ const SignIn = () => {
 
     try {
       await signIn(email, password);
-      navigate("/menu");
+      navigate("/pizza-store/menu");
     } catch (e: any) {
       setError(e.message);
       console.log(e.message);

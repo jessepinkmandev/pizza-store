@@ -50,7 +50,7 @@ export const Details = ({ createData, input, setInput }: propDetails) => {
         onSubmit={(e) => {
           e.preventDefault();
           createData(e);
-          navigate("/success");
+          navigate("/pizza-store/success");
         }}
       >
         <label>Name</label>
