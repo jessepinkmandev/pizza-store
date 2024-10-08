@@ -13,8 +13,12 @@ const Mainpage = () => {
           <div className="bg-red-300 px-4 py-3  w-[50%] text-center mt-8 m-auto  cursor-pointer   text-xl">
             <button
               onClick={async () => {
-                await logout();
-                navigate("/");
+                try {
+                  await logout();
+                  navigate("/");
+                } catch (e) {
+                  console.log("Logout Failed" + e);
+                }
               }}
             >
               Logout
@@ -26,14 +30,15 @@ const Mainpage = () => {
       {!user ? (
         <div>
           <div className=" mt-12 ">
-            <div className=" grid place-content-center w-full h-[400px] text-5xl text-[#D4BDAC] bg-[#536493] text-center ">
+            <div className=" grid place-content-center w-full h-[300px] text-5xl text-[#D4BDAC] bg-[#536493] text-center ">
               <img
-                className="max-w-[400px] mb-4 md:max-w-[900px]"
+                className="max-w-[80%] mb-4 m-auto "
                 src="https://media.istockphoto.com/id/1488369994/vector/vector-illustration-of-modern-pizzeria-interior-empty-restaurant-kitchen-background.jpg?s=612x612&w=0&k=20&c=phb-i7fzE0-0Mc85vrzJrTgDJtcSJz9dIQGrJDWGc3M="
                 alt="a pizza picture"
               />
               RP Pizza Store
             </div>
+            <h1 className="text-center text-4xl mt-8">Our Speciality</h1>
           </div>
           <AboutUs />
         </div>

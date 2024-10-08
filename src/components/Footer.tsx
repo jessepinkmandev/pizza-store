@@ -4,7 +4,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <div className="mt-24 p-12 text-2xl">
+    <div className=" mt-8 text-2xl">
       <div className="pb-4 lg:flex justify-evenly grid place-items-center gap-y-8">
         <div>
           <p>Copyright {year}</p>

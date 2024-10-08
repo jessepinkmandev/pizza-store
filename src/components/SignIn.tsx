@@ -30,7 +30,7 @@ const SignIn = () => {
         <h1 className=" font-bold ">Sign in to your account</h1>
         <p>
           Don't have an account yet? <br></br>
-          <Link to="/signup" className="underline">
+          <Link to="/pizza-store/signup" className="underline">
             Sign up.
           </Link>
         </p>
@@ -38,7 +38,7 @@ const SignIn = () => {
 
       <form
         onSubmit={handleSubmit}
-        className=" my-8 grid place-content-center text-xl gap-4"
+        className=" my-8 grid place-content-center text-xl gap-4 m-auto max-w-[60%]"
       >
         <label>Email Address</label>
         <input onChange={(e) => setEmail(e.target.value)} type="email" />
@@ -46,7 +46,7 @@ const SignIn = () => {
         <label>Password</label>
         <input onChange={(e) => setPassword(e.target.value)} type="password" />
 
-        <button className="border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-2 ">
+        <button className="bg-[#EF5A6F] hover:scale-110 w-full p-2 mt-4 ">
           Sign In
         </button>
       </form>

@@ -5,9 +5,9 @@ const style = {
 };
 
 type propDetails = {
-  createData: (e: any) => void;
+  createData: (e: React.FormEvent<HTMLFormElement>) => void;
   input: { name: string; address: string; contact: number };
-  setInput?: any;
+  setInput: any;
 };
 
 export const Details = ({ createData, input, setInput }: propDetails) => {

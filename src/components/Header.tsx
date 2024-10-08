@@ -12,6 +12,8 @@ const Header = () => {
     return setMenu(!menu);
   };
 
+  //
+
   ////////////////////////
   return (
     <div>
@@ -33,11 +35,11 @@ const Header = () => {
             <div
               className={`bg-[#EF5A6F] text-xl  text-[#D4BDAC]  space-x-8 invisible md:visible `}
             >
-              <Link to={"signup"}>Sign Up</Link>
-              <Link to={"signin"}>Sign In</Link>
-              <Link to={"menu"}>Menu</Link>
-              <Link to={"details"}>Details</Link>
-              <Link to={"cart"}>Cart</Link>
+              <Link to={"/pizza-store/signup"}>Sign Up</Link>
+              <Link to={"/pizza-store/signin"}>Sign In</Link>
+              <Link to={"/pizza-store/menu"}>Menu</Link>
+              <Link to={"/pizza-store/details"}>Details</Link>
+              <Link to={"/pizza-store/cart"}>Cart</Link>
             </div>
           ) : null}
         </div>

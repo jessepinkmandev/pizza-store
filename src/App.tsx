@@ -28,13 +28,12 @@ function App() {
     address: "",
     contact: 0,
   });
-  console.log(QuerySnapshot);
 
   useEffect(() => {
     const p = query(collection(db, "pizzas"));
-    const unsubscribe = onSnapshot(p, (QuerySnapshot) => {
+    const unsubscribe = onSnapshot(p, (snapshot: QuerySnapshot) => {
       let pizzaArr: typePizArr[] | any = [];
-      QuerySnapshot.forEach((pizza) => {
+      snapshot.forEach((pizza) => {
         pizzaArr.push({ ...pizza.data(), id: Math.random() });
       });
       setPizza(pizzaArr);

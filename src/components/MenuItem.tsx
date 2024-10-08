@@ -15,11 +15,11 @@ export const MenuItem = ({ pizza, addToCart }: propMenuItem) => {
   return pizza.map(
     (pizza: { id: number; url: string; name: string; price: number }) => (
       <div
-        className="bg-[#EF5A6F] grid place-items-center grid-cols-5 p-4 gap-2 text-[#D4BDAC] text-xl md:px-24 mb-4 md:mb-8"
+        className="bg-[#EF5A6F] grid place-items-center grid-cols-5 p-4 gap-4 lg:p-8 text-[#D4BDAC] text-sm lg:text-xl md:px-24 mb-4 md:mb-8"
         key={pizza.id}
       >
         <img
-          className="w-64 h-16 md:w-64 md:h-32"
+          className="w-32 h-12  md:w-64 md:h-32"
           src={pizza.url}
           alt={pizza.name}
         />
@@ -39,7 +39,10 @@ export const MenuItem = ({ pizza, addToCart }: propMenuItem) => {
         </select>
         <button
           onClick={() => {
-            addToCart(pizza.name, pizza.price, quantity);
+            if (quantity > 0) {
+              addToCart(pizza.name, pizza.price, quantity);
+              setQuantity(0);
+            }
           }}
           className="text-3xl"
         >

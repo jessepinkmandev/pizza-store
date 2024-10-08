@@ -11,7 +11,7 @@ export type pizzaCart = {
 type propMenu = {
   pizza: [];
   cartPizza: [];
-  setCartPizza?: any;
+  setCartPizza: any;
 };
 
 export const Menu = ({ pizza, cartPizza, setCartPizza }: propMenu) => {
