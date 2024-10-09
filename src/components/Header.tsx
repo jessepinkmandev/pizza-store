@@ -3,9 +3,11 @@ import Mainpage from "./Mainpage";
 import { TiThMenu } from "react-icons/ti";
 import { useState } from "react";
 import Footer from "./Footer";
+import { UserAuth } from "../context/AuthContext";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
+  const { user }: any = UserAuth();
 
   // show menu
   const showMenu = () => {
@@ -19,7 +21,7 @@ const Header = () => {
     <div>
       <div className="flex justify-between px-4 py-8 bg-[#EF5A6F] text-3xl px-8 text-[#D4BDAC]">
         <div>
-          <Link to={"/pizza-store/"}>
+          <Link to={user ? "/pizza-store/menu" : "/pizza-store/"}>
             <h1>Home</h1>
           </Link>
         </div>

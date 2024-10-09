@@ -17,6 +17,9 @@ import { AuthContextProvider } from "./context/AuthContext.js";
 import { Cart } from "./components/Cart.js";
 import Success from "./components/Success.js";
 import ProtectedRoutes from "./components/ProtectedRoutes.js";
+import { Error } from "./Error.tsx";
+import { ErrorBoundary } from "react-error-boundary";
+import RedirectRoute from "./components/RedirectRoute.tsx";
 
 type typePizArr = {};
 
@@ -54,47 +57,63 @@ function App() {
   return (
     <BrowserRouter>
       <AuthContextProvider>
-        <Routes>
-          <Route path="/pizza-store/" element={<Header />}>
-            <Route path="/pizza-store/signin" element={<SignIn />} />
-            <Route path="/pizza-store/signup" element={<SignUp />} />
-            <Route path="/pizza-store/success" element={<Success />} />
+        <ErrorBoundary FallbackComponent={Error}>
+          <Routes>
+            <Route path="/pizza-store/" element={<Header />}>
+              <Route
+                path="/pizza-store/signin"
+                element={
+                  <RedirectRoute>
+                    <SignIn />
+                  </RedirectRoute>
+                }
+              />
+              <Route
+                path="/pizza-store/signup"
+                element={
+                  <RedirectRoute>
+                    <SignUp />
+                  </RedirectRoute>
+                }
+              />
+              <Route path="/pizza-store/success" element={<Success />} />
 
-            <Route
-              path="/pizza-store/menu"
-              element={
-                <ProtectedRoutes>
-                  <Menu
-                    pizza={pizza}
-                    cartPizza={cartPizza}
-                    setCartPizza={setCartPizza}
-                  />
-                </ProtectedRoutes>
-              }
-            />
-            <Route
-              path="/pizza-store/cart"
-              element={
-                <ProtectedRoutes>
-                  <Cart cartPizza={cartPizza} setCartPizza={setCartPizza} />
-                </ProtectedRoutes>
-              }
-            />
-            <Route
-              path="/pizza-store/details"
-              element={
-                <ProtectedRoutes>
-                  <Details
-                    setInput={setInput}
-                    input={input}
-                    createData={createData}
-                  />
-                </ProtectedRoutes>
-              }
-            />
-          </Route>
-          <Route path="*" element={<Header />} />
-        </Routes>
+              <Route
+                path="/pizza-store/menu"
+                element={
+                  <ProtectedRoutes>
+                    <Menu
+                      pizza={pizza}
+                      cartPizza={cartPizza}
+                      setCartPizza={setCartPizza}
+                    />
+                  </ProtectedRoutes>
+                }
+              />
+              <Route
+                path="/pizza-store/cart"
+                element={
+                  <ProtectedRoutes>
+                    <Cart cartPizza={cartPizza} setCartPizza={setCartPizza} />
+                  </ProtectedRoutes>
+                }
+              />
+              <Route
+                path="/pizza-store/details"
+                element={
+                  <ProtectedRoutes>
+                    <Details
+                      setInput={setInput}
+                      input={input}
+                      createData={createData}
+                    />
+                  </ProtectedRoutes>
+                }
+              />
+            </Route>
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </ErrorBoundary>
       </AuthContextProvider>
     </BrowserRouter>
   );
