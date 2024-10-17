@@ -15,7 +15,7 @@ const Mainpage = () => {
               onClick={async () => {
                 try {
                   await logout();
-                  navigate("/");
+                  navigate("/pizza-store/");
                 } catch (e) {
                   console.log("Logout Failed" + e);
                 }

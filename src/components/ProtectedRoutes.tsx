@@ -5,7 +5,7 @@ const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
   const { user }: any = UserAuth();
 
   if (!user) {
-    return <Navigate to="/signin" />;
+    return <Navigate to="/pizza-store/signin" />;
   }
   return children;
 };
